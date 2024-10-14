@@ -20,7 +20,7 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     <link rel="icon" type="image/png" href="blog-solid.svg">
-    
+
     <title>PostLy</title>
     <style>
         * {
@@ -36,45 +36,83 @@
             font-style: normal;
         }
 
+        /* Navbar */
+        /* General styling */
+        header {
+            width: 100%;
+            background-color: #150b37;
+            color:#8179d4;  /* Change the background color as needed */
+            padding: 10px 20px;
+        }
+
         nav {
-            height: 75px;
-            background: #000221;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
             align-items: center;
         }
 
         .logo {
-            width: 35%;
-            font-size: 20px;
-            color: #dcf6ff;
+            font-size: 24px;
+            font-weight: bold;
         }
 
-        nav ul {
-            width: 10%;
+        .navbar ul {
+            list-style-type: none;
             display: flex;
-            justify-content: space-evenly;
+            margin: 0;
+            padding: 0;
         }
 
-        nav ul li {
-            list-style: none;
-            margin: 10px;
-            font: 1em roboto;
+        .navbar ul li {
+            margin-left: 20px;
         }
 
-        nav ul li a {
-            list-style: none;
-            font: 1em roboto;
+        .navbar ul li a {
+            color: #8179d4;
             text-decoration: none;
-            color: #d3e2ff;
+            font-size: 18px;
         }
 
-        nav ul li a:hover {
-            list-style: none;
-            font: 1.019em roboto;
-            text-decoration: none;
-            color: #96b8fd;
+        .hamburger {
+            display: none;
+            font-size: 28px;
+            color: white;
+            cursor: pointer;
         }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                text-align: center;
+            }
+
+            .navbar ul li {
+                margin: 0;
+                padding: 15px 0;
+                width: 100%;
+            }
+
+            .navbar ul li a {
+                font-size: 20px;
+            }
+
+            .hamburger {
+                display: block;
+            }
+
+            .navbar.active ul {
+                display: flex;
+            }
+        }
+
+
 
         .firstsection {
             display: flex;
@@ -168,184 +206,70 @@
 
         }
 
-        
-nav {
-  height: 75px;
-  background: #000221;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.logo {
-  font-size: 20px;
-  color: #dcf6ff;
-}
-
-.navbar ul {
-  display: flex;
-  list-style: none;
-}
-
-.navbar ul li {
-  margin: 0 10px;
-}
-
-.navbar ul li a {
-  font: 1em roboto;
-  text-decoration: none;
-  color: #d3e2ff;
-}
-
-.navbar ul li a:hover {
-  font: 1.019em roboto;
-  color: #96b8fd;
-}
-
-.hamburger {
-  display: none;
-  cursor: pointer;
-}
-
-.bar {
-  display: block;
-  width: 25px;
-  height: 3px;
-  margin: 5px auto;
-  -webkit-transition: all 0.3s ease;
-  transition: all 0.3s ease;
-  background-color: #dcf6ff;
-}
-
-@media (max-width: 768px) {
-  .hamburger {
-    display: block;
-  }
-
-  .hamburger.active .bar:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger.active .bar:nth-child(1) {
-    transform: translateY(8px) rotate(45deg);
-  }
-
-  .hamburger.active .bar:nth-child(3) {
-    transform: translateY(-8px) rotate(-45deg);
-  }
-
-  .navbar {
-    position: fixed;
-    left: -100%;
-    top: 75px;
-    gap: 0;
-    flex-direction: column;
-    background-color: #000221;
-    width: 100%;
-    text-align: center;
-    transition: 0.3s;
-  }
-
-  .navbar.active {
-    left: 0;
-  }
-
-  .navbar ul {
-    flex-direction: column;
-  }
-
-  .navbar ul li {
-    margin: 16px 0;
-  }
-}
-
-        
         @media (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    height: auto;
-    padding: 10px 0;
-  }
+            .firstsection {
+                flex-direction: column;
+                align-items: center;
+            }
 
-  .logo {
-    width: 100%;
-    text-align: center;
-    margin-bottom: 10px;
-  }
+            .leftsection,
+            .rightsection {
+                width: 90%;
+                margin: 20px 0;
+                text-align: center;
+            }
 
-  nav ul {
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-  }
+            .rightsection img {
+                max-width: 100%;
+                height: auto;
+            }
 
-  nav ul li {
-    margin: 5px 0;
-  }
+            main hr {
+                margin: 20px 20px;
+            }
 
-  .firstsection {
-    flex-direction: column;
-    align-items: center;
-  }
+            .container.authors .row {
+                flex-direction: column;
+            }
 
-  .leftsection, .rightsection {
-    width: 90%;
-    margin: 20px 0;
-    text-align: center;
-  }
+            .container.authors .col-3 {
+                width: 100%;
+                border-right: none;
+                border-bottom: 0.7px solid #333085;
+                padding: 20px 0;
+            }
 
-  .rightsection img {
-    max-width: 100%;
-    height: auto;
-  }
+            .container.authors .col-3:last-child {
+                border-bottom: none;
+            }
+        }
 
-  main hr {
-    margin: 20px 20px;
-  }
+        @media (max-width: 576px) {
+            .leftsection {
+                font-size: 20px;
+            }
 
-  .container.authors .row {
-    flex-direction: column;
-  }
+            .container.my-5 {
+                padding: 0 10px;
+            }
 
-  .container.authors .col-3 {
-    width: 100%;
-    border-right: none;
-    border-bottom: 0.7px solid #333085;
-    padding: 20px 0;
-  }
+            ul.timeline-3:before {
+                left: 20px;
+            }
 
-  .container.authors .col-3:last-child {
-    border-bottom: none;
-  }
-}
+            ul.timeline-3>li:before {
+                left: 11px;
+            }
 
-@media (max-width: 576px) {
-  .leftsection {
-    font-size: 20px;
-  }
-
-  .container.my-5 {
-    padding: 0 10px;
-  }
-
-  ul.timeline-3:before {
-    left: 20px;
-  }
-
-  ul.timeline-3 > li:before {
-    left: 11px;
-  }
-
-  ul.timeline-3 > li {
-    padding-left: 40px;
-  }
-}
+            ul.timeline-3>li {
+                padding-left: 40px;
+            }
+        }
     </style>
 </head>
 
 <body>
-    <!--<header>
+    <!-- <header>
         <nav>
             <div class="logo"><i class="fa-solid fa-blog" style="padding: 5px;"></i> PostLy.blog</div>
             <div class="navbar">
@@ -358,27 +282,26 @@ nav {
                 </ul>
             </div>
         </nav>
-    </header>-->
+    </header> -->
 
     <header>
         <nav>
-          <div class="logo"><i class="fa-solid fa-blog" style="padding: 5px;"></i> PostLy.blog</div>
-          <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-          </div>
-          <div class="navbar">
-            <ul>
-              <li><a href="">Home</a></li>
-              <li><a href="">Projects</a></li>
-              <li><a href="">Products</a></li>
-              <li><a href="">Subscription</a></li>
-              <li><a href="">FAQ</a></li>
-            </ul>
-          </div>
+            <div class="logo"><i class="fa-solid fa-blog" style="padding: 5px;"></i> PostLy.blog</div>
+            <div class="navbar" id="navbar">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Projects</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Subscription</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            <div class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </div>
         </nav>
-      </header>
+    </header>
+    
 
     <main>
         <section class="firstsection">
@@ -413,7 +336,8 @@ nav {
                         <li>
                             <a href="#!">Key of Happyness</a>
                             <a href="#!" class="float-end">21 March, 2014</a>
-                            <p class="mt-2 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque scelerisque
+                            <p class="mt-2 text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
+                                scelerisque
                                 diam
                                 non nisi semper, et elementum lorem ornare. Maecenas placerat facilisis mollis. Duis
                                 sagittis
@@ -422,21 +346,24 @@ nav {
                         <li>
                             <a href="#!">Key of wealth</a>
                             <a href="#!" class="float-end">4 March, 2014</a>
-                            <p class="mt-2 text-muted">Curabitur purus sem, malesuada eu luctus eget, suscipit sed turpis. Nam
+                            <p class="mt-2 text-muted">Curabitur purus sem, malesuada eu luctus eget, suscipit sed
+                                turpis. Nam
                                 pellentesque
                                 felis vitae justo accumsan, sed semper nisi sollicitudin...</p>
                         </li>
                         <li>
                             <a href="#!">Key of key</a>
                             <a href="#!" class="float-end">1 April, 2014</a>
-                            <p class="mt-2 text-muted">Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                            <p class="mt-2 text-muted">Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed
+                                nulla odio,
                                 tincidunt
                                 vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
                         </li>
                         <li>
                             <a href="#!">Key of no key</a>
                             <a href="#!" class="float-end">1 April, 2014</a>
-                            <p class="mt-2 text-muted">Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed nulla odio,
+                            <p class="mt-2 text-muted">Fusce ullamcorper ligula sit amet quam accumsan aliquet. Sed
+                                nulla odio,
                                 tincidunt
                                 vitae nunc vitae, mollis pharetra velit. Sed nec tempor nibh...</p>
                         </li>
@@ -477,60 +404,52 @@ nav {
         <footer class="bg-body-tertiary text-center text-lg-start mt-5" style="color:#8c89dc;">
             <!-- Grid container -->
             <div class="container-fluid p-4" style="background: #0d0022;">
-              <!--Grid row-->
-              <div class="row">
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                  <h5 class="text-uppercase">Footer text</h5>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-                    voluptatem veniam, est atque cumque eum delectus sint!
-                  </p>
+                <!--Grid row-->
+                <div class="row">
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Footer text</h5>
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                            voluptatem veniam, est atque cumque eum delectus sint!
+                        </p>
+                    </div>
+                    <!--Grid column-->
+
+                    <!--Grid column-->
+                    <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+                        <h5 class="text-uppercase">Footer text</h5>
+
+                        <p>
+                            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+                            molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
+                            voluptatem veniam, est atque cumque eum delectus sint!
+                        </p>
+                    </div>
+                    <!--Grid column-->
                 </div>
-                <!--Grid column-->
-          
-                <!--Grid column-->
-                <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-                  <h5 class="text-uppercase">Footer text</h5>
-          
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
-                    molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae aliquam
-                    voluptatem veniam, est atque cumque eum delectus sint!
-                  </p>
-                </div>
-                <!--Grid column-->
-              </div>
-              <!--Grid row-->
+                <!--Grid row-->
             </div>
             <div class="text-center p-3" style="background-color: #474a65">
-              © 2020 Copyright:
-              <a class="text-body" href="https://facebook.com/">IntMachine.com</a>
+                © 2020 Copyright:
+                <a class="text-body" href="https://facebook.com/">IntMachine.com</a>
             </div>
             <!-- Grid container -->
-          
-            <!-- Copyright -->
-            <!-- Copyright -->
-          </footer>
 
-          
-        
+            <!-- Copyright -->
+            <!-- Copyright -->
+        </footer>
+
+
+
     </main>
     <script>
-        const hamburger = document.querySelector(".hamburger");
-        const navbar = document.querySelector(".navbar");
-      
-        hamburger.addEventListener("click", () => {
-          hamburger.classList.toggle("active");
-          navbar.classList.toggle("active");
+        document.getElementById('hamburger').addEventListener('click', function () {
+            document.getElementById('navbar').classList.toggle('active');
         });
-      
-        document.querySelectorAll(".navbar a").forEach(n => n.addEventListener("click", () => {
-          hamburger.classList.remove("active");
-          navbar.classList.remove("active");
-        }));
-      </script>
+
+    </script>
 
 </body>
 
