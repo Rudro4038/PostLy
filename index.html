@@ -167,11 +167,185 @@
             margin-bottom: 20px;
 
         }
+
+        
+nav {
+  height: 75px;
+  background: #000221;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.logo {
+  font-size: 20px;
+  color: #dcf6ff;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin: 0 10px;
+}
+
+.navbar ul li a {
+  font: 1em roboto;
+  text-decoration: none;
+  color: #d3e2ff;
+}
+
+.navbar ul li a:hover {
+  font: 1.019em roboto;
+  color: #96b8fd;
+}
+
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background-color: #dcf6ff;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .navbar {
+    position: fixed;
+    left: -100%;
+    top: 75px;
+    gap: 0;
+    flex-direction: column;
+    background-color: #000221;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+  }
+
+  .navbar.active {
+    left: 0;
+  }
+
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar ul li {
+    margin: 16px 0;
+  }
+}
+
+        
+        @media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    height: auto;
+    padding: 10px 0;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  nav ul {
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    margin: 5px 0;
+  }
+
+  .firstsection {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .leftsection, .rightsection {
+    width: 90%;
+    margin: 20px 0;
+    text-align: center;
+  }
+
+  .rightsection img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  main hr {
+    margin: 20px 20px;
+  }
+
+  .container.authors .row {
+    flex-direction: column;
+  }
+
+  .container.authors .col-3 {
+    width: 100%;
+    border-right: none;
+    border-bottom: 0.7px solid #333085;
+    padding: 20px 0;
+  }
+
+  .container.authors .col-3:last-child {
+    border-bottom: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .leftsection {
+    font-size: 20px;
+  }
+
+  .container.my-5 {
+    padding: 0 10px;
+  }
+
+  ul.timeline-3:before {
+    left: 20px;
+  }
+
+  ul.timeline-3 > li:before {
+    left: 11px;
+  }
+
+  ul.timeline-3 > li {
+    padding-left: 40px;
+  }
+}
     </style>
 </head>
 
 <body>
-    <header>
+    <!--<header>
         <nav>
             <div class="logo"><i class="fa-solid fa-blog" style="padding: 5px;"></i> PostLy.blog</div>
             <div class="navbar">
@@ -184,7 +358,27 @@
                 </ul>
             </div>
         </nav>
-    </header>
+    </header>-->
+
+    <header>
+        <nav>
+          <div class="logo"><i class="fa-solid fa-blog" style="padding: 5px;"></i> PostLy.blog</div>
+          <div class="hamburger">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </div>
+          <div class="navbar">
+            <ul>
+              <li><a href="">Home</a></li>
+              <li><a href="">Projects</a></li>
+              <li><a href="">Products</a></li>
+              <li><a href="">Subscription</a></li>
+              <li><a href="">FAQ</a></li>
+            </ul>
+          </div>
+        </nav>
+      </header>
 
     <main>
         <section class="firstsection">
@@ -319,9 +513,24 @@
             <!-- Copyright -->
             <!-- Copyright -->
           </footer>
+
+          
         
     </main>
-
+    <script>
+        const hamburger = document.querySelector(".hamburger");
+        const navbar = document.querySelector(".navbar");
+      
+        hamburger.addEventListener("click", () => {
+          hamburger.classList.toggle("active");
+          navbar.classList.toggle("active");
+        });
+      
+        document.querySelectorAll(".navbar a").forEach(n => n.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navbar.classList.remove("active");
+        }));
+      </script>
 
 </body>
 
